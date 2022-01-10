@@ -8,6 +8,8 @@ public final class NPCType extends ConfigType {
 
     public static final int GROUP = 9;
 
+    public int category = -1;
+
     public int ambient = 0;
 
     public int contrast = 0;
@@ -109,6 +111,9 @@ public final class NPCType extends ConfigType {
                     walkbackanim = in.g2();
                     walkleftanim = in.g2();
                     walkrightanim = in.g2();
+                    break;
+                case 18:
+                    category = in.g2();
                     break;
                 case 30:
                 case 31:

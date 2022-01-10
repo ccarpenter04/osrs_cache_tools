@@ -10,6 +10,8 @@ public final class ObjType extends ConfigType {
 
     public String name = "null";
 
+    public int category = -1;
+
     public int resizex = 128;
 
     public int resizey = 128;
@@ -209,6 +211,9 @@ public final class ObjType extends ConfigType {
                     break;
                 case 93:
                     womanhead2 = in.g2();
+                    break;
+                case 94:
+                    category = in.g2();
                     break;
                 case 95:
                     zan2d = in.g2();

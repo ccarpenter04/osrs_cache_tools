@@ -16,6 +16,8 @@ public final class LocType extends ConfigType {
 
     public Map<Integer, Object> params = null;
 
+    public int category = -1;
+
     public int resizeZ = 128;
 
     public int ambient = 0;
@@ -195,6 +197,9 @@ public final class LocType extends ConfigType {
                     }
                     break;
                 }
+                case 61:
+                    category = in.g2();
+                    break;
                 case 62:
                     isRotated = true;
                     break;

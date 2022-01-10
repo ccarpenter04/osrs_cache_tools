@@ -56,7 +56,7 @@ public final class NameExtractor {
             }
         }
 
-        var structNameKeys = new int[]{610, 660, 682, 689, 853, 858, 879, 939, 985, 1086};
+        var structNameKeys = new int[]{610, 660, 682, 689, 853, 858, 879, 939, 985, 1086, 1232, 1251};
         for (var file : cache.archive(ConfigType.ARCHIVE).group(StructType.GROUP).files()) {
             var struct = new StructType();
             struct.decode(file.data());
