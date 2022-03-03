@@ -1,5 +1,6 @@
 package org.runestar.cache.tools;
 
+import java.util.HashMap;
 import org.runestar.cache.content.config.ConfigType;
 import org.runestar.cache.content.config.EnumType;
 import org.runestar.cache.content.config.IDKType;
@@ -56,15 +57,29 @@ public final class NameExtractor {
             }
         }
 
-        var structNameKeys = new int[]{610, 660, 682, 689, 853, 858, 879, 939, 985, 1086, 1232, 1251};
+        var structNameKeys = new HashMap<Integer, String>() {{
+            put(610, null);
+            put(660, null);
+            put(682, null);
+            put(689, null);
+            put(853, null);
+            put(858, null);
+            put(879, null);
+            put(939, null);
+            put(985, null);
+            put(1086, null);
+            put(1232, null);
+            put(1251, null);
+            put(1279, "buff_");
+        }};
         for (var file : cache.archive(ConfigType.ARCHIVE).group(StructType.GROUP).files()) {
             var struct = new StructType();
             struct.decode(file.data());
             if (struct.params == null) continue;
-            for (var key : structNameKeys) {
-                var name = struct.params.get(key);
+            for (var entry : structNameKeys.entrySet()) {
+                var name = struct.params.get(entry.getKey());
                 if (name != null) {
-                    structs.put(file.id(), escape((String) name));
+                    structs.put(file.id(), (entry.getValue() != null ? entry.getValue() : "") + escape((String) name));
                     break;
                 }
             }
