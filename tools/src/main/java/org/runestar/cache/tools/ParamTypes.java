@@ -11,12 +11,12 @@ public final class ParamTypes {
 
     private ParamTypes() {}
 
-    public static SortedMap<Integer, Integer> get(MemCache cache) {
-        var paramTypes = new TreeMap<Integer, Integer>();
+    public static SortedMap<Integer, String> get(MemCache cache) {
+        var paramTypes = new TreeMap<Integer, String>();
         for (var file : cache.archive(ConfigType.ARCHIVE).group(ParamType.GROUP).files()) {
             var param = new ParamType();
             param.decode(file.data());
-            paramTypes.put(file.id(), (int) param.type);
+            paramTypes.put(file.id(), Type.ofAuto(param.type).getLiteral());
         }
         return paramTypes;
     }
