@@ -52,6 +52,11 @@ public interface Input {
         return peek() < 0 ? g2() - 0xc000 : g1() - 0x40;
     }
 
+    default int gSmart1or2() {
+        int n = peek() & 0xFF;
+        return n < 128 ? g1() : g2() - 32768;
+    }
+
     default int gSmart2or4() {
         if (peek() < 0) {
             return g4s() & Integer.MAX_VALUE;

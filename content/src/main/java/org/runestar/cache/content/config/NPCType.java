@@ -188,6 +188,24 @@ public final class NPCType extends ConfigType {
                 case 111:
                     follower = true;
                     break;
+                case 114:
+                    in.g2();
+                    break;
+                case 115:
+                    in.g2();
+                    in.g2();
+                    in.g2();
+                    in.g2();
+                    break;
+                case 116:
+                    in.g2();
+                    break;
+                case 117:
+                    in.g2();
+                    in.g2();
+                    in.g2();
+                    in.g2();
+                    break;
                 case 106:
                 case 118: {
                     multivarbit = in.g2m();

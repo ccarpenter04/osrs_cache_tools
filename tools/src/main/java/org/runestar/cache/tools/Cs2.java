@@ -23,6 +23,7 @@ public final class Cs2 {
             ClientScriptBinaries.write(cache, inputDir);
 
             writeTsv(dir.resolve("param-types.tsv"), ParamTypes.get(cache));
+            writeTsv(dir.resolve("dbtable-types.tsv"), DBTableTypes.get(cache));
 
             var ne = new NameExtractor(cache);
             writeTsv(dir.resolve("loc-names.tsv"), ne.locs);

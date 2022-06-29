@@ -1,5 +1,6 @@
 package org.runestar.cache.tools;
 
+import org.runestar.cache.content.Type;
 import org.runestar.cache.content.config.ConfigType;
 import org.runestar.cache.content.config.ParamType;
 import org.runestar.cache.format.MemCache;
