@@ -19,6 +19,12 @@ public final class DBTableTypes {
         for (var file : cache.archive(ConfigType.ARCHIVE).group(DBTableType.GROUP).files()) {
             var dbtable = new DBTableType();
             dbtable.decode(file.data());
+
+            if (dbtable.types == null) {
+                // table has no transmitted columns, so just skip it
+                continue;
+            }
+
             for (int column = 0; column < dbtable.types.length; column++) {
                 Type[] columnTypes = dbtable.types[column];
                 if (columnTypes == null) {
