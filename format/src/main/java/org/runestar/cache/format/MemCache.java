@@ -69,6 +69,16 @@ public final class MemCache {
         public Group group(int group) {
             return groups.get(group);
         }
+
+        public Group group(String name) {
+            int nameHash = name.hashCode();
+            for (Group group : groups.values()) {
+                if (group.nameHash == nameHash) {
+                    return group;
+                }
+            }
+            return null;
+        }
     }
 
     public static final class Group {
