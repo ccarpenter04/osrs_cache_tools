@@ -26,6 +26,12 @@ public final class ObjType extends ConfigType {
 
     public int cost = 0;
 
+    public int wearpos = -1;
+
+    public int wearpos2 = -1;
+
+    public int wearpos3 = -1;
+
     public boolean stockmarket = false;
 
     public int stackable = 0;
@@ -90,6 +96,8 @@ public final class ObjType extends ConfigType {
 
     public int team = 0;
 
+    public int weight = 0;
+
     public int shiftclickindex = -2;
 
     public int boughtlink = -1;
@@ -135,6 +143,12 @@ public final class ObjType extends ConfigType {
                 case 12:
                     cost = in.g4s();
                     break;
+                case 13:
+                    wearpos = in.g1();
+                    break;
+                case 14:
+                    wearpos2 = in.g1();
+                    break;
                 case 16:
                     members = true;
                     break;
@@ -151,6 +165,9 @@ public final class ObjType extends ConfigType {
                     break;
                 case 26:
                     womanwear2 = in.g2();
+                    break;
+                case 27:
+                    wearpos3 = in.g1();
                     break;
                 case 30:
                 case 31:
@@ -193,6 +210,9 @@ public final class ObjType extends ConfigType {
                     break;
                 case 65:
                     stockmarket = true;
+                    break;
+                case 75:
+                    weight = in.g2s();
                     break;
                 case 78:
                     manwear3 = in.g2();
