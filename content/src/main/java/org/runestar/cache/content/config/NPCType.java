@@ -42,7 +42,9 @@ public final class NPCType extends ConfigType {
 
     public int _aw = 0;
 
-    public int headIconPrayer = -1;
+    public int[] iconGroups;
+
+    public short[] iconIndices;
 
     public int size = 1;
 
@@ -174,7 +176,24 @@ public final class NPCType extends ConfigType {
                     contrast = in.g1s();
                     break;
                 case 102:
-                    headIconPrayer = in.g2();
+                    int bits = in.g1();
+                    int length = 0;
+                    for (int i = bits; i != 0; i >>= 1) {
+                        ++length;
+                    }
+
+                    iconGroups = new int[length];
+                    iconIndices = new short[length];
+
+                    for (int i = 0; i < length; i++) {
+                        if ((bits & 1 << i) == 0) {
+                            iconGroups[i] = -1;
+                            iconIndices[i] = -1;
+                        } else {
+                            iconGroups[i] = in.gSmart2or4();
+                            iconIndices[i] = (short) in.gSmart1or2null();
+                        }
+                    }
                     break;
                 case 103:
                     _aw = in.g2();
